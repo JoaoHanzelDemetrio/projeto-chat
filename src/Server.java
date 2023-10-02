@@ -48,6 +48,14 @@ public class Server implements Runnable {
         }
     }
 
+    public void broadcastToRoom(String message, InetAddress sender, String room) {
+        for (ConnectionHandler ch : connections) {
+            if (ch != null && ch.client.getInetAddress() != sender && ch.room.equals(room)) {
+                ch.sendMessage(message);
+            }
+        }
+    }
+
     public void shutdown() {
         try {
             done = true;
@@ -107,7 +115,7 @@ public class Server implements Runnable {
 
                 System.out.println(nickname + " conectou na sala " + room + "!");
 
-                broadcast(nickname + " entrou na sala" + room + "!", client.getInetAddress());
+                broadcast(nickname + " entrou na sala " + room + "!", client.getInetAddress());
                 String message;
                 while ((message = in.readLine()) != null) {
                     if (message.startsWith("/nick ")) {
@@ -125,7 +133,7 @@ public class Server implements Runnable {
                         broadcast(nickname + "Saiu do chat.", sender);
                         shutdown();
                     } else {
-                        broadcast(nickname + ": " + message, sender);
+                        broadcastToRoom(nickname + ": " + message, sender, room);
                     }
                 }
             } catch (IOException e) {
