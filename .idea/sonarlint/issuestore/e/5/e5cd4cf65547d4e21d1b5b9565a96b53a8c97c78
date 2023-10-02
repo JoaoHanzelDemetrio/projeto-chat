@@ -1,0 +1,10 @@
+
+0
+java:S1700"Rename field "server"(­«ÚÒùÿÿÿÿ
+@	java:S106#"+Replace this use of System.out by a logger.(Ò™ğÏ
+E	java:S106<"+Replace this use of System.out by a logger.(„›‡øÿÿÿÿ
+r
+java:S1450D"WRemove the "nickname" field and declare it as a local variable in the relevant methods.(¥šÓßÿÿÿÿÿ
+@	java:S106Q"+Replace this use of System.out by a logger.(ëÜË
+E	java:S106Z"+Replace this use of System.out by a logger.(Ì«Ìâøÿÿÿÿ
+@	java:S106x"+Replace this use of System.out by a logger.(ÿ«íÉ
